@@ -4,8 +4,8 @@ name: Python CI Pipeline
 on: 
   push:
     branches: [main]
-  pull_request: 
-    branches: [main]
+  pull_request:
+    branches: [main, developer]
 
 #Job setup
 jobs:
