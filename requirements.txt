@@ -1,3 +1,3 @@
 # Không có dependencies bên ngoài
-# Hoặc thêm nếu cần:
+#Trường hợp cần phải cài đặt thêm dependencies, ví dụ như pytest:
 # pytest==7.4.3
