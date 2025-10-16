@@ -3,7 +3,7 @@ from calculator import add , subtract , multiply , divide
 
 class TestCalculator(unittest.TestCase):
   def addTest(self):
-    self.assertEqual(add(2,2),4)
+    self.assertEqual(add(2,2),5)
     self.assertEqual(add(-1, 1), 0)
     self.assertEqual(add(0, 0), 0)
     
