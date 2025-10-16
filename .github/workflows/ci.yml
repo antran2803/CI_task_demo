@@ -1,21 +1,22 @@
 name: Python CI Pipeline
 
-# Khi nào workflow này sẽ chạy
+#Workflow chạy khi có push hoặc pull request vào nhánh main hoặc developer
 on: 
   push:
     branches: [main]
-  pull_request: 
-    branches: [main]
+  pull_request:
+    branches: [main, developer]
 
-#Job setup
+# Job để chạy test
 jobs:
   test:
+    # Sử dụng môi trường Ubuntu để chạy job
     runs-on: ubuntu-latest
-
+    # Chạy job trên nhiều phiên bản Python
     strategy:
       matrix:
         python-version: ['3.8','3.9', '3.10', '3.11']
-
+ # Các bước để thực hiện 
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
@@ -24,11 +25,14 @@ jobs:
         uses: actions/setup-python@v3
         with:
           python-version: ${{ matrix.python-version }}
-          
+  # Cài đặt dependencies và chạy test
       - name: Install dependencies
         run: |
             python -m pip install --upgrade pip
             if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+          # Cài đặt các gói trong requirements.txt nếu file này tồn tại
+
       - name: run tests
         run: |
-            python -m unittest discover -s . -p "test_*.py"
+            python -m unittest discover -s . -p "test_*.py" 
+        # chạy tất cả các file test_*.py trong thư mục hiện tại
