@@ -13,4 +13,5 @@ Quy trình tổng quát:
  3. Tạo 1 Github Actions workflow
  4. Push code lên github và click Tab Actions để thấy được Github Actions thực thi
  ![alt text](image-2.png)
+
 *check test case trên local: python -m unittest -v
